@@ -1,0 +1,19 @@
+# OBJ Material Export by Luxion KeyShot
+
+newmtl Zinc Polished
+Kd 0.792157 0.819608 0.933333
+
+newmtl Hard Rough Plastic Grey
+Kd 0.515023 0.515023 0.515023
+
+newmtl Hard Textured Plastic White
+Kd 1 1 1
+
+newmtl Hard Textured Plastic Grey
+Kd 0.515023 0.515023 0.515023
+
+newmtl Gold 24k Textured
+Kd 0.792157 0.819608 0.933333
+
+newmtl Hard Rough Plastic White
+Kd 1 1 1
