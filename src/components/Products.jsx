@@ -27,6 +27,7 @@ const products = [
     img: headphones,
     colors: [
       { name: "white", obj: { b: 21, g: 20, r: 20 } }, //white
+      { name: "red", obj: { b: 0, g: 0, r: 0.1 } }, // red
     ],
     position: 15,
   },

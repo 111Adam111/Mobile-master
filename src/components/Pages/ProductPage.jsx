@@ -6,14 +6,18 @@ import { CartContext, ProductContext } from "../Context";
 import RelatedProducts from "../RelatedProducts";
 
 const ProductPage = () => {
-  const { currentProductID, setCurrentProductID } = useContext(ProductContext);
-  const [color, setColor] = useState(0);
+  const { ID, color } = useContext(ProductContext);
+  const [currentProductID, setCurrentProductID] = ID;
+  const [currentColor, setCurrentColor] = color;
   const cart = useContext(CartContext);
-  const colorAmount = products[currentProductID].colors.length;
-  console.log(colorAmount);
-  useEffect(() => {
-    setColor(0);
-  }, [currentProductID]);
+  // const colorAmount = products[currentProductID].colors.length;
+
+  //changes color to white to preven error when product has less colors than previous
+  // const choice = currentColor > colorAmount -1 ? 0 : currentColor
+  // useEffect(() => {
+  //   setColor(0);
+  //   // console.log(color)
+  // }, [);
   return (
     <>
       <div className="product-page">
@@ -24,7 +28,7 @@ const ProductPage = () => {
             <h2>${products[currentProductID].showPrice}</h2>
             <p>Color:</p>
             <div className="color-choice">
-              {products[currentProductID].colors[color].name}
+              {products[currentProductID].colors[currentColor].name}
             </div>
             <Button
               text="Add to cart"
@@ -34,12 +38,18 @@ const ProductPage = () => {
         </div>
 
         <div className="scene">
-          <Scene color={color} productY={products[currentProductID].position} />
+          <Scene
+            color={currentColor}
+            productY={products[currentProductID].position}
+          />
           <div className="color-box">
             {products[currentProductID].colors.map((color, index) => (
               <div
                 className={color.name + " color"}
-                onClick={() => setColor(index)}
+                onClick={() => {
+                  setCurrentColor(index);
+                  console.log(currentColor);
+                }}
                 key={index}
               ></div>
             ))}

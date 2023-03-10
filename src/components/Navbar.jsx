@@ -9,7 +9,11 @@ import { ProductContext, CartContext } from "./Context";
 
 const Navbar = () => {
   const { isLightMode, setIsLightMode } = useContext(ThemeContext);
-  const { currentProductID, setCurrentProductID } = useContext(ProductContext);
+
+  const {ID, color} = useContext(ProductContext);
+  const [currentProductID, setCurrentProductID] = ID;
+  const [currentColor, setCurrentColor] = color;
+
   const cart = useContext(CartContext);
 
 

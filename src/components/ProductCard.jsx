@@ -12,20 +12,25 @@ const ProductCard = ({ product, style }) => {
   // useEffect(()=> console.log(cart.items),[cart.items])
   const handleClick = () => {
     cart.addOneToCart(product.id);
-    console.log(cart.items)
+    console.log(cart.items);
   };
-  const { currentProductID, setCurrentProductID } = useContext(ProductContext);
+
+  const { ID, color } = useContext(ProductContext);
+  const [currentProductID, setCurrentProductID] = ID;
+  const [currentColor, setCurrentColor] = color;
 
   return (
     <div className={style}>
       <Link
         to={"/"}
         className="link"
-        onClick={() => setCurrentProductID(product.id)}
+        onClick={() => {
+          setCurrentProductID(product.id);
+          setCurrentColor(0);
+        }}
       >
         <div className="img-box">
           <img src={product.img} alt="" />
-
         </div>
         <h2>{product.name}</h2>
         <p>${product.showPrice}</p>

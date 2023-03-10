@@ -7,7 +7,11 @@ import { ProductContext } from "./Context";
 import { useContext } from "react";
 
 const RelatedProducts = ({ currentProduct }) => {
-  const { currentProductID, setCurrentProductID } = useContext(ProductContext);
+
+  const {ID, color} = useContext(ProductContext);
+  const [currentProductID, setCurrentProductID] = ID;
+  const [currentColor, setCurrentColor] = color;
+
 
   return (
     <div className="related-products">
@@ -17,7 +21,10 @@ const RelatedProducts = ({ currentProduct }) => {
           <div
             className="item"
             key={index}
-            onClick={() => setCurrentProductID(product.id)}
+            onClick={() => {
+              setCurrentColor(0)
+              setCurrentProductID(product.id)}
+            } 
           >
             <img src={product.img} alt="" />
             <h2>{product.name}</h2>

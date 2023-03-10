@@ -4,7 +4,23 @@ import { getProductData } from "./Products";
 
 export const ThemeContext = createContext("light");
 
-export const ProductContext = createContext(null);
+export const ProductContext = createContext();
+
+export function ProductProvider({ children }) {
+  const [currentProductID, setCurrentProductID] = useState(0);
+  const [currentColor, setCurrentColor] = useState(0);
+
+  return (
+    <ProductContext.Provider
+      value={{
+        ID: [currentProductID, setCurrentProductID],
+        color: [currentColor, setCurrentColor],
+      }}
+    >
+      {children}
+    </ProductContext.Provider>
+  );
+}
 
 export const CartContext = createContext({
   items: [],

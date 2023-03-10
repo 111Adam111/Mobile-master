@@ -16,7 +16,10 @@ import Scene from "./components/Scene";
 import Navbar from "./components/Navbar";
 import ProductPage from "./components/Pages/ProductPage";
 import { Routes, Route, Link } from "react-router-dom";
-import CartProvider, { ThemeContext } from "./components/Context";
+import CartProvider, {
+  ProductProvider,
+  ThemeContext,
+} from "./components/Context";
 import { ProductContext } from "./components/Context";
 
 // Import the functions you need from the SDKs you need
@@ -52,13 +55,10 @@ function Wall() {
 
 function App() {
   const [isLightMode, setIsLightMode] = useState(true);
-  const [currentProductID, setCurrentProductID] = useState(0);
 
   return (
-    <CartProvider>
-      <ProductContext.Provider
-        value={{ currentProductID, setCurrentProductID }}
-      >
+    <ProductProvider>
+      <CartProvider>
         <ThemeContext.Provider value={{ isLightMode, setIsLightMode }}>
           <div className="App" id={isLightMode ? "light" : "dark"}>
             <Navbar />
@@ -70,8 +70,8 @@ function App() {
             </Routes>
           </div>
         </ThemeContext.Provider>
-      </ProductContext.Provider>
-    </CartProvider>
+      </CartProvider>
+    </ProductProvider>
   );
 }
 

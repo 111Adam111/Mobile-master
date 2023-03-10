@@ -5,7 +5,10 @@ import { ProductContext, CartContext } from "./Context";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 
 const CartItem = ({ product }) => {
-  const { currentProductID, setCurrentProductID } = useContext(ProductContext);
+  
+  const {ID, color} = useContext(ProductContext);
+  const [currentProductID, setCurrentProductID] = ID;
+  const [currentColor, setCurrentColor] = color;
   //   const cart = useContext(CartContext);
   const item = products[product.id];
   const cart = useContext(CartContext);
@@ -15,7 +18,10 @@ const CartItem = ({ product }) => {
       <Link
         to={"/"}
         className="link cart-item"
-        onClick={() => setCurrentProductID(product.id)}
+        onClick={() => {
+          setCurrentColor(0)
+          setCurrentProductID(product.id)}
+        } 
       >
         <img src={item.img} alt="" />
         <div className="item-text-box">
@@ -24,9 +30,7 @@ const CartItem = ({ product }) => {
         </div>
       </Link>
       <div className="amount-box">
-        <CiCircleMinus
-          onClick={() => cart.removeOneFromCart(product.id)}
-        />
+        <CiCircleMinus onClick={() => cart.removeOneFromCart(product.id)} />
         <p>{product.quantity}</p>
         <CiCirclePlus onClick={() => cart.addOneToCart(product.id)} />
       </div>
