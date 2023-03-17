@@ -49,7 +49,7 @@
   }
 }
 .product-page {
-  padding: 2rem 0;
+  padding: 1rem 0;
   display: flex;
   width: 55rem;
   height: 44rem;
@@ -190,6 +190,10 @@
 }
 .logo-box p, .cart-box p {
   padding: 0 0.3rem;
+}
+
+.cart-box {
+  width: 5rem;
 }
 
 .mode-switcher {
@@ -396,18 +400,16 @@
   align-items: center;
   text-align: center;
   max-width: 30rem;
-  gap: 3rem;
+  gap: 1rem;
 }
 
-.about {
-  padding: 1rem;
-}
 .about p {
   padding: 1rem 0;
 }
 
-.about-project h2, .about-project h1 {
+.about-project h2, .about-project h1, .about-project h3 {
   padding: 0.3rem;
+  font-size: 1.5rem;
 }
 .about-project p {
   padding: 0.1rem;

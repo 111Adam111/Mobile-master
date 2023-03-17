@@ -11,8 +11,8 @@ const ProductCard = ({ product, style }) => {
   // const productQuantity = cart.getProductQuantity(product.id)
   // useEffect(()=> console.log(cart.items),[cart.items])
   const handleClick = () => {
-    cart.addOneToCart(product.id);
-    console.log(cart.items);
+    cart.addOneToCart(product.id, 0);
+    // console.log(cart.items);
   };
 
   const { ID, color } = useContext(ProductContext);

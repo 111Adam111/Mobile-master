@@ -32,7 +32,7 @@ const ProductPage = () => {
             </div>
             <Button
               text="Add to cart"
-              onClick={() => cart.addOneToCart(currentProductID)}
+              onClick={() => cart.addOneToCart(currentProductID, currentColor)}
             />
           </div>
         </div>

@@ -7,7 +7,7 @@ import Button from "../Button";
 
 const ShoppingCart = () => {
   const cart = useContext(CartContext);
-  console.log(cart.getTotalCost());
+  // console.log(cart.getTotalCost());
 
   return (
     <div className="shopping-cart">
@@ -16,7 +16,7 @@ const ShoppingCart = () => {
       {cart.items.length ? (
         <div className="filled-cart">
           {cart.items.map((item, index) => (
-            <CartItem product={item} key={index} />
+            <CartItem product={item} key={index} itemColor={item.color} />
           ))}
           <div className="total">
             <p>Total: ${cart.getTotalCost()}</p>
