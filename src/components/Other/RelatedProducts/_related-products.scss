@@ -1,0 +1,11 @@
+.related-products {
+  display: flex;
+  justify-content: space-around;
+}
+
+.item {
+  text-align: center;
+  img {
+    height: 10rem;
+  }
+}

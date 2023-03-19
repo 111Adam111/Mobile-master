@@ -1,0 +1,72 @@
+.mode-switcher {
+  cursor: pointer;
+}
+
+.icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  border-radius: 20px;
+  width: 9.5rem;
+  height: 40px;
+  overflow: hidden;
+}
+
+#dark .icon-container {
+  background-color: $light-color;
+  color: $dark-color;
+  transition: $transition-time;
+}
+
+#light .icon-container {
+  background-color: $dark-color;
+  color: $light-color;
+  transition: $transition-time;
+}
+
+.text-container {
+  position: absolute;
+  top: 0;
+  left: 80%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-62%, -0.1rem);
+}
+
+.light-text,
+.dark-text {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.2rem;
+  width: 6rem;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.icon.rotate {
+  animation: rotate-icon 0.5s forwards;
+}
+
+@keyframes rotate-icon {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.icon-container.dark .light-text,
+.icon-container.light .dark-text {
+  opacity: 1;
+}

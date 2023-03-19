@@ -1,33 +1,26 @@
-import React, { useContext, useEffect, useState } from "react";
-import Button from "../Button";
-import Scene from "../Scene";
-import { products } from "../Products";
-import { CartContext, ProductContext } from "../Context";
-import RelatedProducts from "../RelatedProducts";
+import React, { useContext } from "react";
+import Button from "../../Other/Button/Button";
+import Scene from "../../Other/Scene/Scene";
+import { products } from "../../Other/Products/Products";
+import { CartContext, ProductContext } from "../../Other/Context/Context";
+import RelatedProducts from "../../Other/RelatedProducts/RelatedProducts";
 
 const ProductPage = () => {
   const { ID, color } = useContext(ProductContext);
   const [currentProductID, setCurrentProductID] = ID;
   const [currentColor, setCurrentColor] = color;
   const cart = useContext(CartContext);
-  // const colorAmount = products[currentProductID].colors.length;
 
-  //changes color to white to preven error when product has less colors than previous
-  // const choice = currentColor > colorAmount -1 ? 0 : currentColor
-  // useEffect(() => {
-  //   setColor(0);
-  //   // console.log(color)
-  // }, [);
   return (
     <>
       <div className="product-page">
-        <div className="text">
+        <div className="product-page__text">
           <h1>{products[currentProductID].name}</h1>
           <p>{products[currentProductID].desc}</p>
-          <div className="CTA-container">
+          <div className="product-page__action">
             <h2>${products[currentProductID].showPrice}</h2>
             <p>Color:</p>
-            <div className="color-choice">
+            <div className="product-page__color">
               {products[currentProductID].colors[currentColor].name}
             </div>
             <Button

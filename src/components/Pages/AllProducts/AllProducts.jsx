@@ -1,14 +1,7 @@
-import React, { useContext } from "react";
-import Button from "../Button";
-import { CartContext } from "../Context";
-import ProductCard from "../ProductCard";
-import { products } from "../Products";
-
-
-
+import ProductCard from "../../Other/ProductCard/ProductCard";
+import { products } from "../../Other/Products/Products";
 
 const AllProducts = () => {
-  
   return (
     <div className="products-container">
       <h1>Products</h1>

@@ -1,10 +1,7 @@
 import React from "react";
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
-import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
-import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
-import { products } from "../Products";
+import { products } from "../Other/Products/Products";
 
 import { Suspense } from "react";
 

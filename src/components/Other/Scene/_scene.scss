@@ -1,0 +1,12 @@
+.scene {
+  width: 25rem;
+}
+
+#dark .scene {
+  background-color: $dark-color;
+  transition: $transition-time;
+}
+#light .scene {
+  transition: $transition-time;
+  background-color: $light-color;
+}

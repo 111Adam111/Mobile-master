@@ -1,33 +1,21 @@
-import "./scss/style.css";
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import * as THREE from "three";
-import {
-  axesHelper,
-  DoubleSide,
-  MeshLambertMaterial,
-  MeshPhongMaterial,
-} from "three";
-import { createContext, Suspense, useEffect, useRef, useState } from "react";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
-import { TextureLoader } from "three/src/loaders/TextureLoader";
-import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
-import Phone from "./components/3DModels/Phone";
-import Scene from "./components/Scene";
-import Navbar from "./components/Navbar";
-import ProductPage from "./components/Pages/ProductPage";
+import "./style.css";
+
+import { DoubleSide } from "three";
+import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import CartProvider, {
   ProductProvider,
   ThemeContext,
-} from "./components/Context";
-import { ProductContext } from "./components/Context";
+} from "./components/Other/Context/Context";
+import Navbar from "./components/Other/Navbar/Navbar";
+import ProductPage from "./components/Pages/ProductPage/ProductPage";
+import AllProducts from "./components/Pages/AllProducts/AllProducts";
+import ShoppingCart from "./components/Pages/ShoppingCart/ShoppingCart";
+import About from "./components/Pages/About/About";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import AllProducts from "./components/Pages/AllProducts";
-import ShoppingCart from "./components/Pages/ShoppingCart";
-import About from "./components/Pages/About";
 
 // firebase config
 const firebaseConfig = {

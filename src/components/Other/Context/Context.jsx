@@ -1,13 +1,12 @@
 import { createContext, useEffect, useState } from "react";
-import { products } from "./Products";
-import { getProductData } from "./Products";
+import { getProductData } from "../Products/Products";
 
 export const ThemeContext = createContext("light");
 
 export const ProductContext = createContext();
 
 export function ProductProvider({ children }) {
-  const [currentProductID, setCurrentProductID] = useState(0);
+  const [currentProductID, setCurrentProductID] = useState(1);
   const [currentColor, setCurrentColor] = useState(0);
 
   return (
@@ -70,11 +69,13 @@ export function CartProvider({ children }) {
     }
   };
   const deleteFromCart = (id, color) =>
-  setCartProducts((cartProducts) =>
-    cartProducts.filter((product) => !(product.id === id && product.color === color))
-  );
+    setCartProducts((cartProducts) =>
+      cartProducts.filter(
+        (product) => !(product.id === id && product.color === color)
+      )
+    );
 
-      ///45:00 https://www.youtube.com/watch?v=_8M-YVY76O8&t=3029s
+  ///45:00 https://www.youtube.com/watch?v=_8M-YVY76O8&t=3029s
   const getTotalCost = () => {
     let totalCost = 0;
     cartProducts.map((product) => {

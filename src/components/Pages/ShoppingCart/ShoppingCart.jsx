@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
-import CartItem from "../CartItem";
-import { CartContext } from "../Context";
-import Button from "../Button";
+import CartItem from "../../Other/CartItem/CartItem";
+import { CartContext } from "../../Other/Context/Context";
+import Button from "../../Other/Button/Button";
 
 const ShoppingCart = () => {
   const cart = useContext(CartContext);

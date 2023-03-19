@@ -1,6 +1,6 @@
-const charger = require('../asset/charger1.png')
-const headphones = require('../asset/headphones.png')
-const phone = require('../asset/phone.png')
+const charger = require('../../../asset/charger1.png')
+const headphones = require('../../../asset/headphones.png')
+const phone = require('../../../asset/phone.png')
 const products = [
   {
     id: 0,
@@ -27,7 +27,7 @@ const products = [
     img: headphones,
     colors: [
       { name: "white", obj: { b: 21, g: 20, r: 20 } }, //white
-      { name: "red", obj: { b: 0, g: 0, r: 0.1 } }, // red
+      { name: "light blue", obj: { b: 0.2, g: 0.1, r: 0 } }, // red
     ],
     position: 15,
   },

@@ -1,18 +1,14 @@
 import React from "react";
 import { useContext } from "react";
-import { CartContext } from "./Context";
-import Button from "./Button";
-import { useEffect } from "react";
+import Button from "../Button/Button";
 import { Link } from "react-router-dom";
-import { ProductContext } from "./Context";
+import { ProductContext,  CartContext } from "../Context/Context";
 
 const ProductCard = ({ product, style }) => {
   const cart = useContext(CartContext);
-  // const productQuantity = cart.getProductQuantity(product.id)
-  // useEffect(()=> console.log(cart.items),[cart.items])
+
   const handleClick = () => {
     cart.addOneToCart(product.id, 0);
-    // console.log(cart.items);
   };
 
   const { ID, color } = useContext(ProductContext);
@@ -29,7 +25,7 @@ const ProductCard = ({ product, style }) => {
           setCurrentColor(0);
         }}
       >
-        <div className="img-box">
+        <div>
           <img src={product.img} alt="" />
         </div>
         <h2>{product.name}</h2>

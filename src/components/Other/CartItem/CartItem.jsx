@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { products } from "./Products";
+import { products } from "../Products/Products";
 import { Link } from "react-router-dom";
-import { ProductContext, CartContext } from "./Context";
+import { ProductContext, CartContext } from "../Context/Context";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 
 const CartItem = ({ product, itemColor }) => {
@@ -11,12 +11,12 @@ const CartItem = ({ product, itemColor }) => {
   //   const cart = useContext(CartContext);
   const item = products[product.id];
   const cart = useContext(CartContext);
-  console.log(product)
+  console.log(product);
   return (
-    <div className="cart-item-container">
+    <div className="cart-item">
       <Link
         to={"/"}
-        className="link cart-item"
+        className="link cart-product"
         onClick={() => {
           setCurrentColor(0);
           setCurrentProductID(product.id);
@@ -30,9 +30,13 @@ const CartItem = ({ product, itemColor }) => {
         </div>
       </Link>
       <div className="amount-box">
-        <CiCircleMinus onClick={() => cart.removeOneFromCart(product.id, itemColor)} />
+        <CiCircleMinus
+          onClick={() => cart.removeOneFromCart(product.id, itemColor)}
+        />
         <p>{product.quantity}</p>
-        <CiCirclePlus onClick={() => cart.addOneToCart(product.id, itemColor)} />
+        <CiCirclePlus
+          onClick={() => cart.addOneToCart(product.id, itemColor)}
+        />
       </div>
       <div className="sub-total">
         <p>${item.showPrice * product.quantity}</p>
