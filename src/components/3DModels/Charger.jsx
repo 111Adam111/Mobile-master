@@ -14,9 +14,7 @@ const Charger = () => {
 
 
   return (
-    <Suspense>
       <primitive object={fbx} />
-    </Suspense>
   );
 };
 

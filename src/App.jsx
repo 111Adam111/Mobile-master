@@ -1,8 +1,7 @@
 import "./style.css";
 
-import { DoubleSide } from "three";
 import { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import CartProvider, {
   ProductProvider,
   ThemeContext,
@@ -12,10 +11,12 @@ import ProductPage from "./components/Pages/ProductPage/ProductPage";
 import AllProducts from "./components/Pages/AllProducts/AllProducts";
 import ShoppingCart from "./components/Pages/ShoppingCart/ShoppingCart";
 import About from "./components/Pages/About/About";
+import Contact from "./components/Pages/Contact/Contact";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import Footer from "./components/Other/Footer/Footer";
 
 // firebase config
 const firebaseConfig = {
@@ -32,14 +33,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-function Wall() {
-  return (
-    <mesh>
-      <planeGeometry args={[10, 50]} />
-      <meshNormalMaterial side={DoubleSide} />
-    </mesh>
-  );
-}
 
 function App() {
   const [isLightMode, setIsLightMode] = useState(true);
@@ -55,8 +48,10 @@ function App() {
               <Route path="/products" element={<AllProducts />} />
               <Route path="/shopping-cart" element={<ShoppingCart />} />
               <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </div>
+            <Footer />
         </ThemeContext.Provider>
       </CartProvider>
     </ProductProvider>

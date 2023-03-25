@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Preload } from "@react-three/drei";
 import Phone from "../../3DModels/Phone";
 import Headphones from "../../3DModels/Headphones";
 import Charger from "../../3DModels/Charger";
+import Loader from "../Loader/Loader";
 
 const Scene = ({ color, productY }) => {
   return (
@@ -17,17 +18,22 @@ const Scene = ({ color, productY }) => {
           minDistance={3.9}
           minPolarAngle={1}
           maxPolarAngle={2.2}
-          autoRotate
+          // autoRotate
         />
         {/* <OrbitControls/> */}
 
         <group position={[0, productY, 0]}>
-          <group rotation={[0, Math.PI / 2, 0]} position={[-0.25, 1.5, 0.1]}>
-            <Phone index={color} />
+          <group rotation={[0, -Math.PI / 2, 0]} position={[-0.25, 1.5, 0.1]}>
+            {/* <Suspense> */}
+            <Suspense fallback={<Loader />}>
+              <Phone index={color} />
+            </Suspense>
           </group>
 
           <group scale={0.4} position={[0, -18, 0]}>
-            <Headphones color={color} />
+            <Suspense fallback={<Loader />}>
+              <Headphones color={color} />
+            </Suspense>
           </group>
 
           <group
@@ -35,7 +41,9 @@ const Scene = ({ color, productY }) => {
             position={[0, -45, -0.65]}
             rotation={[Math.PI / 2, 0.2, 0]}
           >
-            <Charger />
+            <Suspense fallback={<Loader />}>
+              <Charger />
+            </Suspense>
           </group>
         </group>
 

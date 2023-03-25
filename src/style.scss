@@ -11,10 +11,12 @@ $transition-time: 1s;
 @import "./components/Other/Navbar/navbar";
 @import "./components/Other/ModeSwitcher/mode-switcher";
 @import "./components/Other/RelatedProducts/related-products";
-@import "./components/Other/ProductCard/productCard";
+@import "./components/Other/Loader/loader";
+@import "./components/Other/Footer/footer";
 @import "./components/Pages/ShoppingCart/shopping-cart";
 @import "./components/Pages/About/about";
 @import "./components/Pages/AllProducts/all-products";
+@import "./components/Pages/Contact/contact";
 
 * {
   box-sizing: border-box;
@@ -27,8 +29,8 @@ $transition-time: 1s;
   display: grid;
   justify-content: center;
 }
-
 body {
+  height: 100%;
   background-color: $light-color;
 }
 

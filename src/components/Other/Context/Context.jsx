@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { getProductData } from "../Products/Products";
 
 export const ThemeContext = createContext("light");
@@ -6,7 +6,7 @@ export const ThemeContext = createContext("light");
 export const ProductContext = createContext();
 
 export function ProductProvider({ children }) {
-  const [currentProductID, setCurrentProductID] = useState(1);
+  const [currentProductID, setCurrentProductID] = useState(0);
   const [currentColor, setCurrentColor] = useState(0);
 
   return (
@@ -56,7 +56,7 @@ export function CartProvider({ children }) {
 
   const removeOneFromCart = (id, color) => {
     const quantity = getProductQuantity(id, color);
-    if (quantity == 1) {
+    if (quantity === 1) {
       deleteFromCart(id, color);
     } else {
       setCartProducts(() => {

@@ -4,15 +4,12 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { products } from "../Other/Products/Products";
 
 import { Suspense } from "react";
+import Loader from "../Other/Loader/Loader";
 
 const Phone = ({ index }) => {
   const obj = useLoader(GLTFLoader, "phone13/13.gltf");
   obj.materials.Back.color = products[0].colors[index].obj;
-  return (
-    <Suspense>
-      <primitive object={obj.scene} />
-    </Suspense>
-  );
+  return <primitive object={obj.scene} />;
 };
 
 export default Phone;
