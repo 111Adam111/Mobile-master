@@ -62,8 +62,8 @@ const Navbar = () => {
         </div>
 
         <Link to={"shopping-cart"} className="link navbar-box__links hide" onClick={() => handleClick()}>
-          <p>
-            <TiShoppingCart />
+          <p className="cart-icon">
+            <TiShoppingCart  />
           </p>
         </Link>
       </div>
