@@ -7,9 +7,7 @@ function ModeSwitcher() {
   const handleClick = () => {
     setIsLightMode(!isLightMode);
     const doc = document.body.classList;
-    // adds class to body for start up so it can be toggled later
-    // this approach prevents ugly body transition animation on startup
-    doc.length == 0 && doc.add("light");
+    doc.length === 0 && doc.add("light");
     doc.toggle("light");
     doc.toggle("dark");
   };

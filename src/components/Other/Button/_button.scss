@@ -4,22 +4,12 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0.5rem;
+  width: 10rem;
   outline: none;
-  //  background-color: $call-to-action;
-  color: $dark-color;
   border: none;
-  border-radius: 0.4rem;
+  border-radius: 1.5rem;
   cursor: pointer;
-}
-
-#dark .btn {
   color: $light-color;
-  transition: $transition-time;
-}
-
-#light .btn {
-  transition: $transition-time;
-  color: $dark-color;
 }
 
 .color-change-2x {
@@ -48,7 +38,8 @@
     background: #ff0303;
   }
   100% {
-    background: #9300b1;
+    // background: #9300b1;
+    background: #0004ff;
   }
 }
 @keyframes color-change-2x {
@@ -56,6 +47,8 @@
     background: #ff0303;
   }
   100% {
-    background: #9300b1;
+    // background: #9300b1;
+    background: #0004ff;
+
   }
 }

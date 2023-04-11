@@ -1,10 +1,12 @@
 .related-products {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .item {
   text-align: center;
+  width: 15rem;
   img {
     height: 10rem;
   }

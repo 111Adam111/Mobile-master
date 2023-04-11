@@ -75,7 +75,6 @@ export function CartProvider({ children }) {
       )
     );
 
-  ///45:00 https://www.youtube.com/watch?v=_8M-YVY76O8&t=3029s
   const getTotalCost = () => {
     let totalCost = 0;
     cartProducts.map((product) => {

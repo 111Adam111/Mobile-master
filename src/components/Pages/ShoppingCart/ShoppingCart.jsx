@@ -7,8 +7,6 @@ import Button from "../../Other/Button/Button";
 
 const ShoppingCart = () => {
   const cart = useContext(CartContext);
-  // console.log(cart.getTotalCost());
-
   return (
     <div className="shopping-cart">
       <h1>Shopping Cart</h1>
@@ -28,7 +26,7 @@ const ShoppingCart = () => {
           <MdOutlineShoppingCart />
           <h2>Your Shopping cart is empty.</h2>
           <div className="empty-cart-link">
-            <Link to={"../products"} className="link">
+            <Link to={"../products"} className="link empty-cart-link">
               <p>Products</p>
             </Link>
           </div>

@@ -1,0 +1,14 @@
+.single-product-text {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+#dark .single-product-text  {
+  color: $light-color;
+  transition: 1s;
+}
+
+#light .single-product-text {
+  color: $dark-color;
+  transition: 1s;
+}

@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
-import { ProductContext,  CartContext } from "../Context/Context";
+import { ProductContext, CartContext } from "../Context/Context";
 
 const ProductCard = ({ product, style }) => {
   const cart = useContext(CartContext);
@@ -28,8 +28,10 @@ const ProductCard = ({ product, style }) => {
         <div>
           <img src={product.img} alt="" />
         </div>
-        <h2>{product.name}</h2>
+        <div className="single-product-text">
+          <h2>{product.name}</h2>
         <p>${product.showPrice}</p>
+        </div>
       </Link>
       <Button text="Add to cart" onClick={handleClick} />
     </div>

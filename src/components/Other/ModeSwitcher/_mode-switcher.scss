@@ -12,6 +12,7 @@
   width: 9.5rem;
   height: 40px;
   overflow: hidden;
+  transition: 1s;
 }
 
 #dark .icon-container {
@@ -69,4 +70,15 @@
 .icon-container.dark .light-text,
 .icon-container.light .dark-text {
   opacity: 1;
+}
+
+
+@media (max-width: $mobile-width) {
+  .text-container {
+    display: none;
+  }
+  .icon-container {
+    width: fit-content;
+  }
+  
 }

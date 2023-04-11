@@ -8,10 +8,8 @@ const CartItem = ({ product, itemColor }) => {
   const { ID, color } = useContext(ProductContext);
   const [currentProductID, setCurrentProductID] = ID;
   const [currentColor, setCurrentColor] = color;
-  //   const cart = useContext(CartContext);
   const item = products[product.id];
   const cart = useContext(CartContext);
-  console.log(product);
   return (
     <div className="cart-item">
       <Link
@@ -23,23 +21,27 @@ const CartItem = ({ product, itemColor }) => {
         }}
       >
         <img src={item.img} alt="" />
+      </Link>
+      <div className="desc-amount-container">
         <div className="item-text-box">
           <h2>{item.name}</h2>
-          <p>${item.showPrice}</p>
+          {/* <p>${item.showPrice}</p> */}
           <p>{item.colors[itemColor].name}</p>
         </div>
-      </Link>
-      <div className="amount-box">
-        <CiCircleMinus
-          onClick={() => cart.removeOneFromCart(product.id, itemColor)}
-        />
-        <p>{product.quantity}</p>
-        <CiCirclePlus
-          onClick={() => cart.addOneToCart(product.id, itemColor)}
-        />
-      </div>
-      <div className="sub-total">
-        <p>${item.showPrice * product.quantity}</p>
+        <div className="amount-total">
+          <div className="amount-box">
+            <CiCircleMinus
+              onClick={() => cart.removeOneFromCart(product.id, itemColor)}
+            />
+            <p>{product.quantity}</p>
+            <CiCirclePlus
+              onClick={() => cart.addOneToCart(product.id, itemColor)}
+            />
+          </div>
+          <div className="sub-total">
+            <p>${item.showPrice * product.quantity}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

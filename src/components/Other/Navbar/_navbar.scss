@@ -1,48 +1,129 @@
 .navbar-container {
   height: fit-content;
-  // border-bottom: 1px solid $call-to-action;
-  background-color: $light-color;
   color: $dark-color;
-  width: 55rem;
-  position: absolute;
-  z-index: 1;
+  position: relative;
+  width: 60rem;
+  max-width: 100%;
   display: flex;
-  justify-content: center;
-  left: 50%;
-  transform: translateX(-50%);
+  justify-content: space-between;
+  align-items: center;
+  min-height: 5rem;
+}
+
+.navbar-container__logo {
+  font-size: 1.5rem;
+  min-width: 13rem;
+  display: flex;
+  flex-wrap: nowrap;
+  color: $call-to-action;
 }
 
 .navbar-box {
   display: flex;
-  width: 100%;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
   align-items: center;
+  width: 33rem;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-#dark .navbar-container,
-#dark .link {
-  background-color: $dark-color;
+#dark .navbar-box__links,
+#dark .hamburger {
   color: $light-color;
-  transition: $transition-time;
+  transition: 1s;
 }
 
-#light .navbar-container,
-#light .link {
-  transition: $transition-time;
-  background-color: $light-color;
+#light .navbar-box__links,
+#light .hamburger {
   color: $dark-color;
+  transition: 1s;
 }
-
-.navbar-box__logo,
+.navbar-container__logo,
 .navbar-box__cart {
   display: flex;
   align-items: center;
+  justify-content: center;
   p {
     padding: 0 0.3rem;
   }
 }
 
 .navbar-box__cart {
-  width: 5rem;
+  width: 4rem;
+  margin-right: 1rem;
+}
+.navbar-box__links {
+  border-radius: 1.5rem;
+}
+.navbar-box__links:hover {
+  background-color: $call-to-action;
+}
+
+.hamburger {
+  display: none;
+  position: absolute;
+  font-size: 2rem;
+  right: 3%;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.hide {
+  transition: 1s;
+}
+
+// 549px
+@media (max-width: $mobile-width) {
+  .hide {
+    display: none;
+  }
+
+  .navbar-container {
+    justify-content: center;
+  }
+  .navbar-box__links {
+    transform: scale(1.4);
+    margin: 0.5rem;
+    width: 100%;
+    text-align: center;
+    border-radius: none;
+    overflow-x: hidden;
+  }
+  .navbar-box {
+    flex-direction: column;
+  }
+  .navbar-box__products {
+    margin-top: 5rem;
+  }
+  .navbar-box__mode {
+    position: absolute;
+    right: 15%;
+    top: 0.7rem;
+  }
+  .hamburger {
+    display: inline;
+    top: 0.5rem;
+  }
+  .navbar-container__logo {
+    font-size: 2rem;
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+  }
+}
+
+@media (max-width: 340px) {
+  .navbar-container__logo {
+    font-size: 1.4rem;
+    left: 0;
+    top: 0.8rem;
+    min-width: 60%;
+  }
+  .hamburger {
+    right: 0;
+  }
+
+  .navbar-box__mode {
+    right: 14%;
+  }
 }

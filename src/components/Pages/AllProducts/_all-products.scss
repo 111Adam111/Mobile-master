@@ -1,9 +1,9 @@
 .products-container {
   text-align: center;
-  width: 80vw;
+  width: 95vw;
 
   h1 {
-    margin-top: 8rem;
+    margin-top: 2rem;
   }
 }
 
@@ -13,9 +13,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 2rem;
-  // height: 30rem;
-  // background-color: aqua;
-  // z-index: 10;
+
 }
 
 .single-product {
@@ -23,6 +21,7 @@
   width: 20rem;
   h2 {
     margin: 1rem;
+    align-content: center;
   }
   img {
     height: 12rem;

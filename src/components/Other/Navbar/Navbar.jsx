@@ -1,47 +1,77 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { TiShoppingCart } from "react-icons/ti";
-import { ThemeContext, ProductContext, CartContext } from "../Context/Context";
+import { ProductContext } from "../Context/Context";
 import ModeSwitcher from "../ModeSwitcher/ModeSwitcher";
 import { Link } from "react-router-dom";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
-  const { isLightMode, setIsLightMode } = useContext(ThemeContext);
-
   const { ID, color } = useContext(ProductContext);
   const [currentProductID, setCurrentProductID] = ID;
-  const [currentColor, setCurrentColor] = color;
+  const [showMenu, setShowMenu] = useState(false);
 
-  const cart = useContext(CartContext);
+  const elements = document.getElementsByClassName("navbar-box__links");
+
+  const handleClick = () => {
+    setShowMenu(!showMenu);
+    [...elements].forEach((element) => {
+      element.classList.toggle("hide");
+    });
+  };
+
+  const mediaQuery = window.matchMedia("(min-width: 550px)");
+  mediaQuery.addListener(() => {
+    if (mediaQuery.matches) {
+      setShowMenu(true);
+      [...elements].forEach((element) => {
+        element.classList.remove("hide");
+      });
+    } else {
+      setShowMenu(false);
+      [...elements].forEach((element) => {
+        element.classList.add("hide");
+      });
+    }
+  });
 
   return (
     <nav className="navbar-container">
+      <Link
+        className="link navbar-container__logo"
+        to={"/"}
+        onClick={() => setCurrentProductID(0)}
+      >
+        <IoPhonePortraitOutline />
+        <p>Mobile Master</p>
+      </Link>
       <div className="navbar-box">
-        <Link className="link" to={"/"} onClick={() => setCurrentProductID(0)}>
-          <div className="navbar-box__logo">
-            <IoPhonePortraitOutline />
-            <p>Mobile Master</p>
-          </div>
-        </Link>
-        <Link className="link" to={"products"}>
+        <Link
+          className="link navbar-box__links navbar-box__products hide"
+          onClick={() => handleClick()}
+          to={"products"}
+        >
           Products
         </Link>
-        <Link className="link" to={"about"}>
+        <Link className="link navbar-box__links hide" to={"about"} onClick={() => handleClick()}>
           About
         </Link>
 
-        <ModeSwitcher />
-        {/* <p onClick={()=>
-             setIsLightMode(prev => !prev)}>
-              Lightmode
-          </p> */}
-        <Link to={"shopping-cart"} className="link">
-          <div className="navbar-box__cart">
-            <p>${cart.getTotalCost()}</p>
+        <div className="navbar-box__mode">
+          <ModeSwitcher />
+        </div>
+
+        <Link to={"shopping-cart"} className="link navbar-box__links hide" onClick={() => handleClick()}>
+          <p>
             <TiShoppingCart />
-          </div>
+          </p>
         </Link>
       </div>
+      {showMenu ? (
+        <AiOutlineClose className="hamburger" onClick={() => handleClick()} />
+      ) : (
+        <AiOutlineMenu className="hamburger" onClick={() => handleClick()} />
+      )}
     </nav>
   );
 };

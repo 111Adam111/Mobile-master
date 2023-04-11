@@ -1,6 +1,5 @@
 import React from "react";
 import { useLoader } from "@react-three/fiber";
-import { Suspense } from "react";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
 

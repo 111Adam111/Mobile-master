@@ -1,15 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
 const Footer = () => {
   return (
     <footer className='footer'>
-         <Link className="link" to={"about"}>
-          About
-        </Link>
-        <Link className="link" to={"contact"}>
-          Contact
-        </Link>
+        <p>© 2023 Mobile Master</p>
+        <p>Created by Adam Dunowski</p>
+ 
     </footer>
   )
 }

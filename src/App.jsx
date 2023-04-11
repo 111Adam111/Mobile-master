@@ -11,7 +11,6 @@ import ProductPage from "./components/Pages/ProductPage/ProductPage";
 import AllProducts from "./components/Pages/AllProducts/AllProducts";
 import ShoppingCart from "./components/Pages/ShoppingCart/ShoppingCart";
 import About from "./components/Pages/About/About";
-import Contact from "./components/Pages/Contact/Contact";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -33,7 +32,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-
 function App() {
   const [isLightMode, setIsLightMode] = useState(true);
 
@@ -48,10 +46,9 @@ function App() {
               <Route path="/products" element={<AllProducts />} />
               <Route path="/shopping-cart" element={<ShoppingCart />} />
               <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
             </Routes>
-          </div>
             <Footer />
+          </div>
         </ThemeContext.Provider>
       </CartProvider>
     </ProductProvider>

@@ -1,59 +1,50 @@
-const charger = require('../../../asset/charger1.png')
-const headphones = require('../../../asset/headphones.png')
-const phone = require('../../../asset/phone.png')
+const charger = require("../../../asset/charger1.png");
+const headphones = require("../../../asset/headphones.png");
+const phone = require("../../../asset/phone.png");
 const products = [
   {
     id: 0,
-    name: "jPhone 31 Max Pro",
+    name: "jPhone 31 Pro",
     price: 199900,
     showPrice: 1999,
-    desc: "The iPhone 13 Pro Max is a top-of-the-line smartphone that offers exceptional performance, advanced features, and unparalleled camera capabilities. As a reseller, it's an excellent product to offer to your customers who demand the latest and greatest technology. With its stunning 6.7-inch Super Retina XDR display, powerful A15 Bionic chip, 5G connectivity, and Pro-level camera system, the iPhone 13 Pro Max is a must-have device for anyone who values quality and performance. Plus, its sleek and stylish design makes it a highly desirable device that's sure to impress your customers. Overall, the iPhone 13 Pro Max is an outstanding purchase that's sure to exceed your customers' expectations.",
+    desc: "New jPhone 31 Pro with 64GB memory, 50mp camera, 6.7-inch Super Retina XDR display, powerful A15 Bionic chip and 5G connectivity. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi animi, eos iste architecto veritatis suscipit eveniet earum distinctio accusamus consequatur.",
     colors: [
       { name: "white", obj: { b: 21, g: 20, r: 20 } }, //white
       { name: "gray", obj: { b: 0.015, g: 0.015, r: 0.015 } }, //gray
-      { name: "light blue", obj: { b: 0.2, g: 0.1, r: 0 } }, //light blue
+      { name: "blue", obj: { b: 0.6, g: 0.15, r: 0 } }, //light blue
       // { name: "dark green", obj: { b: 0, g: 0.012, r: 0 } }, // dark green
-      { name: "creamy", obj: { b: 0, g: 0, r: 2 } }, // creamy
-      { name: "red", obj: { b: 0, g: 0, r: 0.1 } }, // red
+      { name: "creamy", obj: { b: 0, g: 0, r: 15 } }, // creamy
+      { name: "red", obj: { b: 0, g: 0, r: 0.6 } }, // red
     ],
     img: phone,
     position: 0,
   },
   {
     id: 1,
-    name: "Headphones",
+    name: "X5 Bluetooth Headphones",
     price: 19900,
     showPrice: 199,
+    desc: "The newest X5 Bluetooth headphones feature perfect sound quality and a long-lasting 2000 mAh battery. With a range of 15 meters, you can comfortably use them around your home.",
     img: headphones,
     colors: [
       { name: "white", obj: { b: 21, g: 20, r: 20 } }, //white
-      { name: "light blue", obj: { b: 0.2, g: 0.1, r: 0 } }, // red
+      { name: "navy", obj: { b: 0.09, g: 0.01, r: 0 } }, // red
     ],
     position: 15,
   },
   {
     id: 2,
-    name: "Charger",
+    name: "Charger 30W",
     price: 1900,
     showPrice: 19,
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit aut magnam et est asperiores mii fugit ullam in veniam expedita. Velit, eos laboriosam voluptas quae qui iste optio recusandae error blanditiis repudiandae illum quaerat fugiat quasi aut neque sequi sed iutum veniam nesciunt.",
     img: charger,
     colors: [
       { name: "white", obj: { b: 21, g: 20, r: 20 } }, //white
     ],
     position: 45,
-
   },
 ];
-
-
-
-
-// export const Images = [ 
-//   {
-//     image: charger
-//   }
-// ]
-
 
 const getProductData = (id) => {
   let productData = products.find((product) => product.id === id);

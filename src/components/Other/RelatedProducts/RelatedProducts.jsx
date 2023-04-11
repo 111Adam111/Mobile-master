@@ -24,7 +24,6 @@ const RelatedProducts = ({ currentProduct }) => {
             <img src={product.img} alt="" />
             <h2>{product.name}</h2>
             <p>${product.showPrice}</p>
-            {/* <Button text='Add to cart' /> */}
           </div>
         ))}
     </div>

@@ -18,15 +18,19 @@ const ProductPage = () => {
           <h1>{products[currentProductID].name}</h1>
           <p>{products[currentProductID].desc}</p>
           <div className="product-page__action">
-            <h2>${products[currentProductID].showPrice}</h2>
-            <p>Color:</p>
             <div className="product-page__color">
+              <p>Color:</p>
               {products[currentProductID].colors[currentColor].name}
             </div>
+
+
+            <div className="product-page__buy">
+            <h2>${products[currentProductID].showPrice}</h2>
             <Button
               text="Add to cart"
               onClick={() => cart.addOneToCart(currentProductID, currentColor)}
-            />
+              />
+              </div> 
           </div>
         </div>
 
