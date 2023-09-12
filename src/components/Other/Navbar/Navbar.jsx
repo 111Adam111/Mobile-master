@@ -53,7 +53,11 @@ const Navbar = () => {
         >
           Products
         </Link>
-        <Link className="link navbar-box__links hide" to={"about"} onClick={() => handleClick()}>
+        <Link
+          className="link navbar-box__links hide"
+          to={"about"}
+          onClick={() => handleClick()}
+        >
           About
         </Link>
 
@@ -61,9 +65,13 @@ const Navbar = () => {
           <ModeSwitcher />
         </div>
 
-        <Link to={"shopping-cart"} className="link navbar-box__links hide" onClick={() => handleClick()}>
+        <Link
+          to={"shopping-cart"}
+          className="link navbar-box__links hide"
+          onClick={() => handleClick()}
+        >
           <p className="cart-icon">
-            <TiShoppingCart  />
+            <TiShoppingCart />
           </p>
         </Link>
       </div>

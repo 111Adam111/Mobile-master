@@ -30,7 +30,7 @@ const ProductCard = ({ product, style }) => {
         </div>
         <div className="single-product-text">
           <h2>{product.name}</h2>
-        <p>${product.showPrice}</p>
+          <p>${product.showPrice}</p>
         </div>
       </Link>
       <Button text="Add to cart" onClick={handleClick} />

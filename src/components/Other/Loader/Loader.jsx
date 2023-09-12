@@ -1,11 +1,13 @@
-import React from 'react'
-import { Html, useProgress } from '@react-three/drei'
-
+import React from "react";
+import { Html, useProgress } from "@react-three/drei";
 
 const Loader = () => {
-    const { progress } = useProgress()
-    return <Html center><div className='loader'>Loading... {progress.toFixed(2)}%</div></Html>
-  
-}
+  const { progress } = useProgress();
+  return (
+    <Html center>
+      <div className="loader">Loading... {progress.toFixed(2)}%</div>
+    </Html>
+  );
+};
 
-export default Loader
+export default Loader;

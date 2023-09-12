@@ -34,9 +34,7 @@ const CartItem = ({ product, itemColor }) => {
               onClick={() => cart.removeOneFromCart(product.id, itemColor)}
             />
             <p>{product.quantity}</p>
-            <CiCirclePlus
-              onClick={() => cart.addOneToCart(product.id, itemColor)}
-            />
+            <CiCirclePlus onClick={() => cart.addOneToCart(product.id, itemColor)} />
           </div>
           <div className="sub-total">
             <p>${item.showPrice * product.quantity}</p>

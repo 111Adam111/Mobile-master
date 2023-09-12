@@ -35,7 +35,7 @@ export function CartProvider({ children }) {
 
   const getProductQuantity = (id, color) => {
     let quantity = cartProducts.find(
-      (product) => product.id === id && product.color === color
+      (product) => product.id === id && product.color === color,
     )?.quantity;
     return quantity;
   };
@@ -48,7 +48,7 @@ export function CartProvider({ children }) {
       const updatedCartProducts = cartProducts.map((product) =>
         product.id === id && product.color === color
           ? { ...product, quantity: product.quantity + 1 }
-          : product
+          : product,
       );
       setCartProducts(updatedCartProducts);
     }
@@ -63,16 +63,15 @@ export function CartProvider({ children }) {
         return cartProducts.map((product) =>
           product.id === id && product.color === color
             ? { ...product, quantity: product.quantity - 1 }
-            : product
+            : product,
         );
       });
     }
   };
+  
   const deleteFromCart = (id, color) =>
     setCartProducts((cartProducts) =>
-      cartProducts.filter(
-        (product) => !(product.id === id && product.color === color)
-      )
+      cartProducts.filter((product) => !(product.id === id && product.color === color)),
     );
 
   const getTotalCost = () => {
@@ -93,9 +92,7 @@ export function CartProvider({ children }) {
     getTotalCost,
   };
 
-  return (
-    <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
-  );
+  return <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>;
 }
 
 export default CartProvider;

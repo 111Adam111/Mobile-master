@@ -22,23 +22,18 @@ const ProductPage = () => {
               <p>Color:</p>
               {products[currentProductID].colors[currentColor].name}
             </div>
-
-
             <div className="product-page__buy">
-            <h2>${products[currentProductID].showPrice}</h2>
-            <Button
-              text="Add to cart"
-              onClick={() => cart.addOneToCart(currentProductID, currentColor)}
+              <h2>${products[currentProductID].showPrice}</h2>
+              <Button
+                text="Add to cart"
+                onClick={() => cart.addOneToCart(currentProductID, currentColor)}
               />
-              </div> 
+            </div>
           </div>
         </div>
 
         <div className="scene">
-          <Scene
-            color={currentColor}
-            productY={products[currentProductID].position}
-          />
+          <Scene color={currentColor} productY={products[currentProductID].position} />
           <div className="color-box">
             {products[currentProductID].colors.map((color, index) => (
               <div

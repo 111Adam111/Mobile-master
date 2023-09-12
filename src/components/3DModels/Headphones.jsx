@@ -12,11 +12,7 @@ const Headphones = ({ color }) => {
   });
   obj.children[3].material.color = products[1].colors[color]?.obj;
 
-  return (
-    <primitive object={obj} />
-  );
+  return <primitive object={obj} />;
 };
 
 export default Headphones;
-
-
