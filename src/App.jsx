@@ -9,10 +9,8 @@ import ShoppingCart from "./components/Pages/ShoppingCart/ShoppingCart";
 import About from "./components/Pages/About/About";
 import Footer from "./components/Other/Footer/Footer";
 
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
-// firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyCan2oP0yaVMKRhm5NFhL4Z1uCvUdxL2ZQ",
   authDomain: "mobilephone-store-5355d.firebaseapp.com",
@@ -23,7 +21,6 @@ const firebaseConfig = {
   measurementId: "G-WPTFE414XN",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 function App() {
