@@ -2,18 +2,16 @@ import React from "react";
 import { useContext } from "react";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
-import { ProductContext, CartContext } from "../Context/Context";
+import { ProductContext } from "../../Context/ProductContext";
+import { CartContext } from "../../Context/CartContext";
 
 const ProductCard = ({ product, style }) => {
   const cart = useContext(CartContext);
+  const { productData, setProductData } = useContext(ProductContext);
 
   const handleClick = () => {
     cart.addOneToCart(product.id, 0);
   };
-
-  const { ID, color } = useContext(ProductContext);
-  const [currentProductID, setCurrentProductID] = ID;
-  const [currentColor, setCurrentColor] = color;
 
   return (
     <div className={style}>
@@ -21,8 +19,10 @@ const ProductCard = ({ product, style }) => {
         to={"/"}
         className="link"
         onClick={() => {
-          setCurrentProductID(product.id);
-          setCurrentColor(0);
+          setProductData({
+            currentColor: 0,
+            productID: product.id,
+          });
         }}
       >
         <div>

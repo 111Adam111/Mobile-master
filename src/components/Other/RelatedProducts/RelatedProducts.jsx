@@ -1,12 +1,10 @@
 import React from "react";
 import { products } from "../Products/Products";
 import { useContext } from "react";
-import { ProductContext } from "../Context/Context";
+import { ProductContext } from "../../Context/ProductContext";
 
 const RelatedProducts = ({ currentProduct }) => {
-  const { ID, color } = useContext(ProductContext);
-  const [currentProductID, setCurrentProductID] = ID;
-  const [currentColor, setCurrentColor] = color;
+  const { productData, setProductData } = useContext(ProductContext);
 
   return (
     <div className="related-products">
@@ -17,8 +15,10 @@ const RelatedProducts = ({ currentProduct }) => {
             className="item"
             key={index}
             onClick={() => {
-              setCurrentColor(0);
-              setCurrentProductID(product.id);
+              setProductData({
+                currentColor: 0,
+                productID: product.id,
+              });
             }}
           >
             <img src={product.img} alt="" />

@@ -12,7 +12,6 @@ const products = [
       { name: "white", obj: { b: 21, g: 20, r: 20 } }, //white
       { name: "gray", obj: { b: 0.015, g: 0.015, r: 0.015 } }, //gray
       { name: "blue", obj: { b: 0.6, g: 0.15, r: 0 } }, //light blue
-      // { name: "dark green", obj: { b: 0, g: 0.012, r: 0 } }, // dark green
       { name: "creamy", obj: { b: 0, g: 0, r: 15 } }, // creamy
       { name: "red", obj: { b: 0, g: 0, r: 0.6 } }, // red
     ],

@@ -2,45 +2,53 @@ import React, { useContext } from "react";
 import Button from "../../Other/Button/Button";
 import Scene from "../../Other/Scene/Scene";
 import { products } from "../../Other/Products/Products";
-import { CartContext, ProductContext } from "../../Other/Context/Context";
+import { ProductContext } from "../../Context/ProductContext";
+import { CartContext } from "../../Context/CartContext";
+
 import RelatedProducts from "../../Other/RelatedProducts/RelatedProducts";
 
 const ProductPage = () => {
-  const { ID, color } = useContext(ProductContext);
-  const [currentProductID, setCurrentProductID] = ID;
-  const [currentColor, setCurrentColor] = color;
+  const { productData, setProductData } = useContext(ProductContext);
+
   const cart = useContext(CartContext);
 
   return (
     <>
       <div className="product-page">
         <div className="product-page__text">
-          <h1>{products[currentProductID].name}</h1>
-          <p>{products[currentProductID].desc}</p>
+          <h1>{products[productData.productID].name}</h1>
+          <p>{products[productData.productID].desc}</p>
           <div className="product-page__action">
             <div className="product-page__color">
               <p>Color:</p>
-              {products[currentProductID].colors[currentColor].name}
+              {products[productData.productID].colors[productData.currentColor].name}
             </div>
             <div className="product-page__buy">
-              <h2>${products[currentProductID].showPrice}</h2>
+              <h2>${products[productData.productID].showPrice}</h2>
               <Button
                 text="Add to cart"
-                onClick={() => cart.addOneToCart(currentProductID, currentColor)}
+                onClick={() =>
+                  cart.addOneToCart(productData.productID, productData.currentColor)
+                }
               />
             </div>
           </div>
         </div>
 
         <div className="scene">
-          <Scene color={currentColor} productY={products[currentProductID].position} />
+          <Scene
+            color={productData.currentColor}
+            productY={products[productData.productID].position}
+          />
           <div className="color-box">
-            {products[currentProductID].colors.map((color, index) => (
+            {products[productData.productID].colors.map((color, index) => (
               <div
                 className={color.name + " color"}
                 onClick={() => {
-                  setCurrentColor(index);
-                  console.log(currentColor);
+                  setProductData({
+                    ...productData,
+                    currentColor: index,
+                  });
                 }}
                 key={index}
               ></div>
@@ -48,7 +56,7 @@ const ProductPage = () => {
           </div>
         </div>
       </div>
-      <RelatedProducts currentProduct={currentProductID} />
+      <RelatedProducts currentProduct={productData.productID} />
     </>
   );
 };

@@ -1,25 +1,5 @@
 import { createContext, useState } from "react";
-import { getProductData } from "../Products/Products";
-
-export const ThemeContext = createContext("light");
-
-export const ProductContext = createContext();
-
-export function ProductProvider({ children }) {
-  const [currentProductID, setCurrentProductID] = useState(0);
-  const [currentColor, setCurrentColor] = useState(0);
-
-  return (
-    <ProductContext.Provider
-      value={{
-        ID: [currentProductID, setCurrentProductID],
-        color: [currentColor, setCurrentColor],
-      }}
-    >
-      {children}
-    </ProductContext.Provider>
-  );
-}
+import { getProductData } from "../Other/Products/Products";
 
 export const CartContext = createContext({
   items: [],
@@ -68,7 +48,7 @@ export function CartProvider({ children }) {
       });
     }
   };
-  
+
   const deleteFromCart = (id, color) =>
     setCartProducts((cartProducts) =>
       cartProducts.filter((product) => !(product.id === id && product.color === color)),

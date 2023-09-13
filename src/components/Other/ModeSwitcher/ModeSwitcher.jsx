@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { ThemeContext } from "../Context/Context";
+import { ThemeContext } from "../../Context/ThemeContext";
 
 function ModeSwitcher() {
   const { isLightMode, setIsLightMode } = useContext(ThemeContext);

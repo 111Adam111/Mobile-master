@@ -1,14 +1,13 @@
 import React, { useContext, useState } from "react";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { TiShoppingCart } from "react-icons/ti";
-import { ProductContext } from "../Context/Context";
+import { ProductContext } from "../../Context/ProductContext";
 import ModeSwitcher from "../ModeSwitcher/ModeSwitcher";
 import { Link } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
-  const { ID, color } = useContext(ProductContext);
-  const [currentProductID, setCurrentProductID] = ID;
+  const { productData, setProductData } = useContext(ProductContext);
   const [showMenu, setShowMenu] = useState(false);
 
   const elements = document.getElementsByClassName("navbar-box__links");
@@ -40,7 +39,12 @@ const Navbar = () => {
       <Link
         className="link navbar-container__logo"
         to={"/"}
-        onClick={() => setCurrentProductID(0)}
+        onClick={() => {
+          setProductData({
+            ...productData,
+            productID: 0,
+          });
+        }}
       >
         <IoPhonePortraitOutline />
         <p>Mobile Master</p>
