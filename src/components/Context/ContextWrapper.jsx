@@ -2,7 +2,7 @@ import CartProvider from "./CartContext";
 import ProductProvider from "./ProductContext";
 import ThemeProvider from "./ThemeContext";
 
-const ContextWraper = ({ children }) => {
+const ContextWrapper = ({ children }) => {
   return (
     <ThemeProvider>
       <ProductProvider>
@@ -12,4 +12,4 @@ const ContextWraper = ({ children }) => {
   );
 };
 
-export default ContextWraper;
+export default ContextWrapper;
